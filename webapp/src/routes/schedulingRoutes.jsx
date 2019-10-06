@@ -28,19 +28,19 @@ const dashboardRoutes = [
     {
         path: "/empleados",
         name: "Empleados", 
-        icon: "pe-7s-graph2",
+        icon: "pe-7s-id",
         component: Empleados
     },
     {
         path: "/habitaciones",
         name: "Estado de Habitaciones",
-        icon: "pe-7s-user",
+        icon: "pe-7s-attention",
         component: Habitaciones
     },
     {
         path: "/historial",
         name: "Historial del Paciente",
-        icon: "pe-7s-power",
+        icon: "pe-7s-note2",
         component: HistorialPaciente
     },
         {

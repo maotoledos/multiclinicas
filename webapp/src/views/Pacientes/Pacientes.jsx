@@ -1,42 +1,61 @@
 import React, { Component } from "react";
-import { Grid, Row, Col } from "react-bootstrap";
+import { Grid, Row, Col, Table } from "react-bootstrap";
+import Card from "../../components/Card/Card.jsx";
+import { thArray, tdArray } from "../../variables/Variables.jsx";
 
 
 class EventsPage extends Component {
 
     render() {
+        
         return (
             <div className="content">
                 <Grid fluid>
                     <Row>
-                        <Col md={5}>
-                            <div className="jumbotron">
-                                    <h1 className="display-4">PACIENTES</h1>
-                                    <p className="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                                    <hr className="my-4" />
-                                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
-                                        eu fugiat nulla pariatur.</p>
-                            </div>
-                        </Col>
-                        <Col md={7}>
-                        <div className="jumbotron">
-                                    <h2 className="display-4">RECENT</h2>
-                                    <p className="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                                    <hr className="my-4" />
-                                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
-                                        eu fugiat nulla pariatur.</p>
-                            </div>
+                        <Col md={12}>
+                            <Card
+                                title="Pacientes"
+                                category="User Control (Add, Edit, Remove)"
+                                ctTableFullWidth
+                                ctTableResponsive
+                                content={
+                                    <div className="jumbotron">
+                                        <div className="pull-right">
+                                            <button type="button" className="btn btn-success btn-lg"><i className="pe-7s-add-user"/> Add User</button>
+                                        </div>
+                                    <Table striped hover>
+                                        <thead>
+                                        <tr>
+                                            {thArray.map((prop, key) => {
+                                                return <th key={key}>{prop}</th>;
+                                            })}
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        {tdArray.map((prop, key) => {
+                                            return (
+                                                <tr key={key}>
+                                                    {prop.map((prop, key) => {
+                                                        return <td key={key}>{prop}</td>;
+                                                    })}
+                                                    <div className="pull-right">
+                                                        <button type="button" className="btn btn-primary btn-sm">Edit</button>
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                        <button type="button" className="btn btn-danger btn-sm">Remove</button>
+                                                    </div>
+                                                </tr>
+                                            );
+                                        })}
+                                        </tbody>
+                                    </Table>
+                                    </div>
+                                }
+                            />
                         </Col>
                     </Row>
                 </Grid>
             </div>
+
 
         );
     }
