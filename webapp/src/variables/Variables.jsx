@@ -247,6 +247,7 @@ var style = {
 // // // For tables
 // //
 //
+const thEmpleado = ["ID", "Name","Tipo"];
 const thArray = ["ID", "Name", "range", "Role"];
 const tdArray = [
   ["1", "Dakota Rice", "SGT", "POWER USER"],
@@ -262,6 +263,11 @@ const tdArray = [
     ["11", "Carlos Sanchez", "DET", "BASIC USER"],
     ["12", "Hans Giron", "LCSO", "BASIC USER"]
 ];
+const tdEmpleado2 = [
+  ["1", "Dakota Rice", "Dcotor"],
+  ["2", "Minerva Hooper", "Secretaria"],
+  ["3", "Sage Rodriguez", "Enfermeda"],]
+
 
 //
 // //
@@ -588,6 +594,8 @@ var legendBar = {
 module.exports = {
   style, // For notifications (App container and Notifications view)
   thArray,
+  thEmpleado,
+  tdEmpleado2,
   tdArray, // For tables (HomePage view)
   iconsArray, // For icons (Icons view)
   dataPie,

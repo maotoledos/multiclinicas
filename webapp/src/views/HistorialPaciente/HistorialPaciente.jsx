@@ -1,59 +1,54 @@
 import React, { Component } from "react";
-import { Grid, Row, Col, Carousel } from "react-bootstrap";
-
-import image2 from '../../assets/img/stats2.png';
+import { Grid, Row, Col, Table } from "react-bootstrap";
+import Card from "../../components/Card/Card.jsx";
+import { thArray, tdArray } from "../../variables/Variables.jsx";
 
 class StatsPage extends Component {
 
     render() {
         return (
             <div className="content">
-                <Grid fluid>
+            <Grid fluid>
                     <Row>
-                        <Col md={5}>
-                            <div className="jumbotron jumbotron-fluid">
-                                <div className="jumbotron">
-                                    <h1 className="display-4">STATS</h1>
-                                    <p className="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                                    <hr className="my-4" />
-                                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
-                                        eu fugiat nulla pariatur.</p>
-                                </div>
-                            </div>
-                        </Col>
-                        <Col md={7}>
-                            <div className="jumbotron jumbotron-fluid">
-                            <Carousel>
-                                <Carousel.Item>
-                                    <img width={900} height={500} alt="900x500" src={image2} />
-                                    <Carousel.Caption>
-                                        <h3>Stats #1</h3>
-                                    </Carousel.Caption>
-                                </Carousel.Item>
-                                <Carousel.Item>
-                                    <img width={900} height={500} alt="900x500" src={image2} />
-                                    <Carousel.Caption>
-                                        <h3>Stats #2</h3>
-                                    </Carousel.Caption>
-                                </Carousel.Item>
-                                <Carousel.Item>
-                                    <img width={900} height={500} alt="900x500" src={image2} />
-                                    <Carousel.Caption>
-                                        <h3>Stats #3</h3>
-                                    </Carousel.Caption>
-                                </Carousel.Item>
-                            </Carousel>
-                                <div className="pull-right">
-                                    <hr className="my-4" />
-                                <button type="button" className="btn btn-primary btn-sm"><i className="pe-7s-download"/> Export</button>
-                                    &nbsp;&nbsp;
-                                <button type="button" className="btn btn-secondary btn-sm"><i className="pe-7s-mail"/> Send</button>
-                                    &nbsp;&nbsp;
-                                    <button type="button" className="btn btn-secondary btn-sm"><i className="pe-7s-print"/> Print</button>
-                                </div>
-                            </div>
+                        <Col md={12}>
+                            <Card
+                                title="Historial de pacientes"
+                                category="User Control (Add, Edit, Remove)"
+                                ctTableFullWidth
+                                ctTableResponsive
+                                content={
+                                    <div className="jumbotron">
+                                        <div className="pull-right">
+                                            <button type="button" className="btn btn-success btn-lg"><i className="pe-7s-add-user"/> Add User</button>
+                                        </div>
+                                    <Table striped hover>
+                                        <thead>
+                                        <tr>
+                                            {thArray.map((prop, key) => {
+                                                return <th key={key}>{prop}</th>;
+                                            })}
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        {tdArray.map((prop, key) => {
+                                            return (
+                                                <tr key={key}>
+                                                    {prop.map((prop, key) => {
+                                                        return <td key={key}>{prop}</td>;
+                                                    })}
+                                                    <div className="pull-right">
+                                                        <button type="button" className="btn btn-primary btn-sm">Edit</button>
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                        <button type="button" className="btn btn-danger btn-sm">Remove</button>
+                                                    </div>
+                                                </tr>
+                                            );
+                                        })}
+                                        </tbody>
+                                    </Table>
+                                    </div>
+                                }
+                            />
                         </Col>
                     </Row>
                 </Grid>
