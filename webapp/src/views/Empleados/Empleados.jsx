@@ -4,7 +4,7 @@ import { Grid, Row, Col, Carousel } from "react-bootstrap";
 import image2 from '../../assets/img/stats2.png';
 
 class StatsPage extends Component {
-
+    
     render() {
         return (
             <div className="content">

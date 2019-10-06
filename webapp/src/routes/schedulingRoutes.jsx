@@ -4,6 +4,7 @@ import InventarioMedicina from "../views/InventarioMedicina/InventarioMedicina";
 import Empleados from "../views/Empleados/Empleados";
 import Habitaciones from "../views/Habitaciones/Habitaciones";
 import HistorialPaciente from "../views/HistorialPaciente/HistorialPaciente";
+import Permisos from '../views/Permisos/Permisos'
 
 const dashboardRoutes = [
   {
@@ -41,6 +42,12 @@ const dashboardRoutes = [
         name: "Historial del Paciente",
         icon: "pe-7s-power",
         component: HistorialPaciente
+    },
+        {
+        path: "/permisos",
+        name: "Permisos",
+        icon: "pe-7s-news-paper",
+        component: Permisos
     },
   { redirect: true, path: "/", to: "/home", name: "HomePage" }
 ];

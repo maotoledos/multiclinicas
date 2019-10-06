@@ -8,13 +8,13 @@ export default (sequelize, DataTypes) => {
       allowNull: false,
       unique: true
     },
-    firstname: {
+    nombre: {
       type: DataTypes.STRING
     },
-    middle_initial:{
+    tipo:{
       type: DataTypes.STRING
     },
-    lastname: {
+    apellido: {
       type: DataTypes.STRING
     },
     email: {
@@ -23,27 +23,18 @@ export default (sequelize, DataTypes) => {
     password: {
       type: DataTypes.STRING
     },
-    available: {
-      type: DataTypes.STRING
-    },
-    birthday:{
-      type: DataTypes.STRING
-    },
     first_users:{
       type:DataTypes.BOOLEAN
     },
-    is_admin:{
-      type:DataTypes.BOOLEAN
-    },
-    hire_date:{
-      type:DataTypes.STRING
-    },
-
+    
   },{
     timestamps: false
   });
 
-  
 
+
+  User.associate = function(model){
+    User.hasOne(model.Historial);
+} 
   return User;
 }
