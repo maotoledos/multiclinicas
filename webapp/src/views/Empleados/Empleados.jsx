@@ -3,7 +3,7 @@ import { Grid, Row, Col, Table } from "react-bootstrap";
 import Card from "../../components/Card/Card.jsx";
 import { thEmpleado, tdEmpleado2 } from "../../variables/Variables.jsx";
 class StatsPage extends Component {
-
+    
     render() {
         return (
             <div className="content">

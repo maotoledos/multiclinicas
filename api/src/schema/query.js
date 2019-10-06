@@ -3,7 +3,11 @@ import {GraphQLObjectType} from 'graphql'
 
 // App Imports
 import * as user from './users/fields/query'
-
+import * as sucursales from './sucursales/fields/query'
+import * as paciente from './paciente/fields/query'
+import * as historial from './historial/fields/query'
+import * as habitaciones from './habitacion/fields/query'
+import * as pacientesxhabitaciones from './pacientesxhabitacion/fields/query'
 
 
 // Query
@@ -13,10 +17,11 @@ const query = new GraphQLObjectType({
 
   fields: () => ({
     ...user,
-    
-   
-    
-
+    ...sucursales,
+    ...paciente,
+    ...historial,
+    ...habitaciones,
+    ...pacientesxhabitaciones
   })
 })
 

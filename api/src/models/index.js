@@ -7,8 +7,12 @@ import databaseConnection from '../setup/databaseConnection'
 
 const models = {
   User  : databaseConnection.import('./usersData/user'),
-  
-
+  Sucursales: databaseConnection.import('./sucursal/sucursal'),
+  Paciente: databaseConnection.import('./paciente/paciente'),
+  Historial: databaseConnection.import('./historial/historial'),
+  Inventario: databaseConnection.import('./inventario/inventario'),
+  Habitacion: databaseConnection.import('./habitacion/habitacion'),
+  PacientesXHabitacion: databaseConnection.import('./pacientesxhabitacion/pacientesxhabitacion')
 }
 
 //object.keys fk pk
