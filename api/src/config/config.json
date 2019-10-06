@@ -1,0 +1,10 @@
+{
+  "graphqlEndpoint": "/",
+  "port": 3000,
+  "saltRounds":10,
+  "secret": "secret-key-login-type-jwt",
+  "graphql": {
+    "ide": true,
+    "pretty": true
+  }
+}

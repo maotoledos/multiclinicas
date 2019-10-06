@@ -1,0 +1,35 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "San Francisco Police Department State University Schedule",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon src/index.js --exec babel-node --presets env,stage-2"
+  },
+  "author": "HummingBird IT",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^2.0.1",
+    "body-parser": "^1.18.3",
+    "cookie-parser": "^1.4.3",
+    "cors": "^2.8.4",
+    "express": "^4.16.3",
+    "express-graphql": "^0.6.12",
+    "generate-password": "^1.4.0",
+    "graphql": "^14.0.0-rc.1",
+    "graphql-iso-date": "^3.5.0",
+    "jsonwebtoken": "^8.2.2",
+    "morgan": "^1.9.0",
+    "multer": "^1.3.0",
+    "mysql2": "^1.5.3",
+    "sequelize": "^4.37.10",
+    "validator": "^10.4.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "nodemon": "^1.17.5"
+  }
+}
