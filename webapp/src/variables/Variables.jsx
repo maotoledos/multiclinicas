@@ -247,7 +247,7 @@ var style = {
 // // // For tables
 // //
 //
-const thEmpleado = ["ID", "Name","Tipo"];
+const thEmpleado = ["ID", "Nombre","Puesto","Clinica"];
 const thArray = ["ID", "Name", "range", "Role"];
 const tdArray = [
   ["1", "Dakota Rice", "SGT", "POWER USER"],
