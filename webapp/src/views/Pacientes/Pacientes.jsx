@@ -1,13 +1,31 @@
 import React, { Component } from "react";
 import { Grid, Row, Col, Table } from "react-bootstrap";
+import { connect } from 'react-redux';
+
 import Card from "../../components/Card/Card.jsx";
 import { thArray, tdArray } from "../../variables/Variables.jsx";
+import { getPacientes } from '../../ActionState/pacientes/api/actions';
 
 
 class EventsPage extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            paciente:''
+                };
+    }
+
+    componentWillMount(){
+        this.props.getPacientes()
+        .then(response => {
+            
+        })
+    }
 
     render() {
         
+        const {paciente} = this.props
+
         return (
             <div className="content">
                 <Grid fluid>
@@ -32,12 +50,11 @@ class EventsPage extends Component {
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        {tdArray.map((prop, key) => {
+                                        {paciente.paciente.map((prop, key) => {
                                             return (
                                                 <tr key={key}>
-                                                    {prop.map((prop, key) => {
-                                                        return <td key={key}>{prop}</td>;
-                                                    })}
+                                                    <th>{key+1}</th>
+                                                    <th>{prop.nombre}</th>
                                                     <div className="pull-right">
                                                         <button type="button" className="btn btn-primary btn-sm">Edit</button>
                                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -61,4 +78,11 @@ class EventsPage extends Component {
     }
 }
 
-export default EventsPage;
+function mapStateToProps(state){
+    return {
+        paciente: state.paciente,
+        auth: state.auth
+    }
+}
+
+export default connect(mapStateToProps,{getPacientes})(EventsPage);

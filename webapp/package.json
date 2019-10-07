@@ -38,6 +38,6 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
-  "homepage": "https://hummingbirdit.tech",
+  "homepage": "https://github.com/maotoledos",
   "proxy": "http://localhost:3000"
 }

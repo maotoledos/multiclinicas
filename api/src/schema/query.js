@@ -8,6 +8,7 @@ import * as paciente from './paciente/fields/query'
 import * as historial from './historial/fields/query'
 import * as habitaciones from './habitacion/fields/query'
 import * as pacientesxhabitaciones from './pacientesxhabitacion/fields/query'
+import * as inventarios from './inventario/fields/query'
 
 
 // Query
@@ -21,7 +22,8 @@ const query = new GraphQLObjectType({
     ...paciente,
     ...historial,
     ...habitaciones,
-    ...pacientesxhabitaciones
+    ...pacientesxhabitaciones,
+    ...inventarios
   })
 })
 
