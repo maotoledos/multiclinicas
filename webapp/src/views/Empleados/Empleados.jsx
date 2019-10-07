@@ -1,10 +1,31 @@
 import React, { Component } from "react";
 import { Grid, Row, Col, Table } from "react-bootstrap";
+import { connect } from 'react-redux';
+
 import Card from "../../components/Card/Card.jsx";
 import { thEmpleado, tdEmpleado2 } from "../../variables/Variables.jsx";
+import {getEmpleados} from '../../ActionState/empleados/api/actions';
+
 class StatsPage extends Component {
-    
+    constructor(props){
+        super(props);
+        this.state = {
+            empleados:''
+                };
+    }
+
+    componentWillMount(){
+
+        this.props.getEmpleados()
+        .then(res=>{
+            console.log(this.props.auth)
+        })
+    }
+
+
     render() {
+
+        const {empleados} = this.props;
         return (
             <div className="content">
             <Grid fluid>
@@ -29,17 +50,14 @@ class StatsPage extends Component {
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        {tdEmpleado2.map((prop, key) => {
+                                        {empleados.empleados.map((prop, idx) => {
                                             return (
-                                                <tr key={key}>
-                                                    {prop.map((prop, key) => {
-                                                        return <td key={key}>{prop}</td>;
-                                                    })}
-                                                    <div className="pull-right">
-                                                        <button type="button" className="btn btn-primary btn-sm">Edit</button>
-                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                        <button type="button" className="btn btn-danger btn-sm">Remove</button>
-                                                    </div>
+                                                <tr key={idx}>
+                                                    <td>{idx+1}</td>
+                                                    <td>{prop.nombre}</td>
+                                                    <td>{prop.tipo}</td>
+                                                    <td>{prop.sucursaleId.nombre}</td>
+                                                    
                                                 </tr>
                                             );
                                         })}
@@ -56,4 +74,12 @@ class StatsPage extends Component {
     }
 }
 
-export default StatsPage;
+
+function mapStateToProps(state){
+    return {
+        empleados: state.empleados,
+        auth: state.auth
+    }
+}
+
+export default connect(mapStateToProps,{ getEmpleados }) (StatsPage);

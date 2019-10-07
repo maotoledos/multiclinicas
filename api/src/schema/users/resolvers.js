@@ -141,15 +141,17 @@ export async function login( email, password ) {
     } else {
       const userDetailsToken = {
         id: userDetails.id,
-        firstname: userDetails.firstname,
+        firstname: userDetails.nombre,
         email: userDetails.email,
+        tipo: userDetails.tipo,
         first_users: userDetails.first_users
       }
       return {
         user: userDetails,
-        lastname: userDetails.lastname,
-        firstname: userDetails.firstname,
+        lastname: userDetails.apellido,
+        firstname: userDetails.nombre,
         email: userDetails.email,
+        tipo: userDetails.tipo,
         token: jwt.sign(userDetailsToken, serverConfig.secret)
       }
     }
