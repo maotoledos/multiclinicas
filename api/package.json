@@ -6,7 +6,7 @@
   "scripts": {
     "start": "nodemon src/index.js --exec babel-node --presets env,stage-2"
   },
-  "author": "HummingBird IT",
+  "author": "Mauricio Toledo",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^2.0.1",

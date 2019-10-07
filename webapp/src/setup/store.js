@@ -4,12 +4,16 @@ import thunk from 'redux-thunk'
 
 // App Imports
 import * as users from '../components/users/api/state';
-import * as empleados from '../ActionState/empleados/api/state'
+import * as empleados from '../ActionState/empleados/api/state';
+import * as pacientes from '../ActionState/pacientes/api/state';
+import * as inventario from '../ActionState/inventario/api/state';
 
 // Root Reducer, needs a previous state and action
 const rootReducer = combineReducers({
   ...users,
-  ...empleados
+  ...empleados,
+  ...pacientes,
+  ...inventario
 });
 
 // Store

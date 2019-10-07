@@ -248,7 +248,7 @@ var style = {
 // //
 //
 const thEmpleado = ["ID", "Nombre","Puesto","Clinica"];
-const thArray = ["ID", "Name", "range", "Role"];
+const thArray = ["Id", "Nombre"];
 const tdArray = [
   ["1", "Dakota Rice", "SGT", "POWER USER"],
   ["2", "Minerva Hooper", "CPL", "LIMIT USER"],

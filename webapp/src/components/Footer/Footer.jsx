@@ -9,7 +9,7 @@ class Footer extends Component {
           <p className="copyright pull-right">
             &copy; {new Date().getFullYear()}{" "}
             Created by
-             <a href="http://hummingbirdit.tech"> HummingbirdIT</a>
+             <a href="http://github.com/maotoledos"> Mauricio Toledo</a>
           </p>
         </Grid>
       </footer>
