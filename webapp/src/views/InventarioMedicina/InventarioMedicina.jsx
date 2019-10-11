@@ -3,11 +3,10 @@ import { Grid, Row, Col, Table } from "react-bootstrap";
 import { connect } from 'react-redux';
 
 import Card from "../../components/Card/Card.jsx";
-import { thArray, tdArray } from "../../variables/Variables.jsx";
 import { getInventario } from '../../ActionState/inventario/api/actions';
 
 
-class ReportsPage extends Component {
+class InventarioMedicina extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -17,14 +16,12 @@ class ReportsPage extends Component {
 
     componentWillMount() {
         this.props.getInventario()
-            .then(res => {
-            })
     }
     render() {
 
         const { inventarios } = this.props
         return (
-            <div className="content">
+        <div className="content">
                 <Grid fluid>
                     <Row>
                         <Col md={12}>
@@ -43,23 +40,26 @@ class ReportsPage extends Component {
                                                 <tr>
                                                     <th>Id</th>
                                                     <th>Producto</th>
-                                                    <th>Cantidad</th>
+                                                    <th>Cantidad Cajas</th>
                                                     <th>Clinica</th>
+                                                    <th>Lote</th>
+                                                    <th>Medicina</th>
+                                                    <th>Marca</th>
+                                                    <th>Unidades</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 {inventarios.inventarios.map((prop, key) => {
                                                     return (
                                                         <tr key={key}>
-                                                            <th>{key + 1}</th>
-                                                            <th>{prop.nombre}</th>
-                                                            <th>{prop.cantidad}</th>
-                                                            <th>{prop.sucursaleId.nombre}</th>
-                                                            <div className="pull-right">
-                                                                <button type="button" className="btn btn-primary btn-sm">Edit</button>
-                                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                        <button type="button" className="btn btn-danger btn-sm">Remove</button>
-                                                            </div>
+                                                            <td>{key + 1}</td>
+                                                            <td>{prop.nombre}</td>
+                                                            <td>{prop.cantidad}</td>
+                                                            <td>{prop.sucursaleId.nombre}</td>
+                                                            <td>{prop.lote}</td>
+                                                            <td>{prop.medicinaId.nombre}</td>
+                                                            <td>{prop.medicinaId.marca}</td>
+                                                            <td>{prop.medicinaId.unidades}</td>
                                                         </tr>
                                                     );
                                                 })}
@@ -84,4 +84,4 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps, { getInventario })(ReportsPage);
+export default connect(mapStateToProps, { getInventario })(InventarioMedicina);

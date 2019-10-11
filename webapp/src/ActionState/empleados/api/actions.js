@@ -14,7 +14,9 @@ export function getEmpleados(isLoading = true) {
           
           type: 'query',
           operation: 'users',
-          fields: ['id', 'nombre', 'apellido', 'tipo', 'sucursaleId{id,nombre}' ]
+          fields: ['id', 'nombre', 'apellido', 'tipousuarioId{id,nombre}', 
+          'sucursaleId{id,nombre}', 'fechanacimiento', 'estadocivil',
+          'nacionalidad','domicilio','ocupacion','email']
       }))
       .then((response)=> {
           dispatch({

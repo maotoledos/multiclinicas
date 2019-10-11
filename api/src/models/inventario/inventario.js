@@ -13,6 +13,9 @@ export default (sequelize, DataTypes) => {
     },
     cantidad:{
       type:DataTypes.DOUBLE
+    },
+    lote:{
+      type:DataTypes.STRING
     }
   },{
     timestamps: false

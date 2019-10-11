@@ -15,7 +15,6 @@ import "./assets/sass/light-bootstrap-dashboard.css?v=1.2.0";
 import "./assets/css/pe-icon-7-stroke.css";
 import App from "./components/App";
 
-require("react-big-calendar/lib/css/react-big-calendar.css");
 
 if (localStorage.jwtToken) {
   setAuthorizationToken(localStorage.jwtToken);

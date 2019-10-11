@@ -13,14 +13,14 @@ export function getPacientes(isLoading = true) {
       return axios.post(routesApi, queryBuilder({
           
           type: 'query',
-          operation: 'paciente',
-          fields: ['id', 'nombre' ]
+          operation: 'pacientes',
+          fields: ['id', 'nombre', 'apellido','email','fechanacimiento','estadocivil','nacionalidad','domicilio','ocupacion' ]
       }))
       .then((response)=> {
           dispatch({
               type: 'GET_PACIENTES_RESPONSE',
               error: null,
-              paciente: response.data.data.paciente
+              pacientes: response.data.data.pacientes
           })
       })
       .catch((error)=> {

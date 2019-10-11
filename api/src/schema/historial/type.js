@@ -3,7 +3,8 @@ import {GraphQLObjectType, GraphQLString, GraphQLInt,GraphQLBoolean} from 'graph
 import models from '../../models';
 import UserType from '../users/type';
 import PacienteType from '../paciente/type'
-
+import TipoAtencionType from '../tipoatencion/type';
+import ExpedienteType from '../expediente/type';
 
 
 const HistorialType = new GraphQLObjectType({
@@ -16,6 +17,19 @@ const HistorialType = new GraphQLObjectType({
     examenes: {type: GraphQLString},
     diagnostico: {type: GraphQLString},
     fecha: {type: GraphQLString},
+    observacion: {type:GraphQLString},
+    tipoatencionId: {
+      type: TipoAtencionType,
+      resolve(parent, args){
+        return models.TipoAtencion.findOne({where: {id: parent.tipoatencionId}})
+      }      
+    },
+    expedienteId: {
+      type: ExpedienteType,
+      resolve(parent, args){
+        return models.Expediente.findOne({where: {id: parent.expedienteId}})
+      }      
+    },
     userId:{
       type: UserType,
       resolve(parent, args){

@@ -1,31 +1,37 @@
-// Imports
 import {GraphQLObjectType, GraphQLString, GraphQLInt,GraphQLBoolean} from 'graphql';
 import SucursalType from '../sucursales/type';
+import TipoUsuarioType from '../tipousuario/type';
 import models from '../../models';
 
 
-// User type
 const UserType = new GraphQLObjectType({
   name: 'user',
-  description: '...',
+  description: 'empleados de clinicas',
 
   fields: () => ({
     id: {type: GraphQLInt},
     nombre: {type: GraphQLString},
-    tipo: {type: GraphQLString},
     apellido: {type: GraphQLString},
     email: {type: GraphQLString},
     password: {type: GraphQLString},
     first_users:{type:GraphQLBoolean},
-    is_admin:{type:GraphQLBoolean},
-    hire_date:{type:GraphQLString},
+    fechanacimiento:{type:GraphQLString},
+    estadocivil: {type: GraphQLString},
+    nacionalidad: {type: GraphQLString},
+    domicilio: {type: GraphQLString},
+    ocupacion: {type: GraphQLString},
     sucursaleId: {
       type: SucursalType,
       resolve(parent, args){
         return models.Sucursales.findOne({where: {id: parent.sucursaleId}})
       }      
     },
-
+    tipousuarioId: {
+      type: TipoUsuarioType,
+      resolve(parent, args){
+        return models.TipoUsuario.findOne({where: {id: parent.tipousuarioId}})
+      }      
+    },
     token: { type: GraphQLString}
    
   })

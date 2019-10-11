@@ -3,10 +3,9 @@ import { Grid, Row, Col, Table } from "react-bootstrap";
 import { connect } from 'react-redux';
 
 import Card from "../../components/Card/Card.jsx";
-import { thEmpleado, tdEmpleado2 } from "../../variables/Variables.jsx";
 import {getEmpleados} from '../../ActionState/empleados/api/actions';
 
-class StatsPage extends Component {
+class Empleados extends Component {
     constructor(props){
         super(props);
         this.state = {
@@ -17,9 +16,7 @@ class StatsPage extends Component {
     componentWillMount(){
 
         this.props.getEmpleados()
-        .then(res=>{
-            console.log(this.props.auth)
-        })
+        
     }
 
 
@@ -41,12 +38,20 @@ class StatsPage extends Component {
                                         <div className="pull-right">
                                             <button type="button" className="btn btn-success btn-lg"><i className="pe-7s-add-user"/> Add User</button>
                                         </div>
-                                    <Table striped hover>
+                                    <Table striped bordered hover>
                                         <thead>
                                         <tr>
-                                            {thEmpleado.map((prop, key) => {
-                                                return <th key={key}>{prop}</th>;
-                                            })}
+                                            <th>Id</th>
+                                            <th>Nombre</th>
+                                            <th>Apellido</th>
+                                            <th>Tipo</th>
+                                            <th>Lugar Trabajo</th>
+                                            <th>Email</th>
+                                            <th>Fecha nacimiento</th>
+                                            <th>Estado Civil</th>
+                                            <th>Nacionalidad</th>
+                                            <th>Domicilio</th>
+                                            <th>Ocupacion</th>
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -55,9 +60,15 @@ class StatsPage extends Component {
                                                 <tr key={idx}>
                                                     <td>{idx+1}</td>
                                                     <td>{prop.nombre}</td>
-                                                    <td>{prop.tipo}</td>
+                                                    <td>{prop.apellido}</td>
+                                                    <td>{prop.tipousuarioId.nombre}</td>
                                                     <td>{prop.sucursaleId.nombre}</td>
-                                                    
+                                                    <td>{prop.email}</td>
+                                                    <td>{prop.fechanacimiento}</td>
+                                                    <td>{prop.estadocivil}</td>
+                                                    <td>{prop.nacionalidad}</td>
+                                                    <td>{prop.domicilio}</td>
+                                                    <td>{prop.ocupacion}</td>
                                                 </tr>
                                             );
                                         })}
@@ -82,4 +93,4 @@ function mapStateToProps(state){
     }
 }
 
-export default connect(mapStateToProps,{ getEmpleados }) (StatsPage);
+export default connect(mapStateToProps,{ getEmpleados }) (Empleados);

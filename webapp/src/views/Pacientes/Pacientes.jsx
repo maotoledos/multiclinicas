@@ -3,11 +3,10 @@ import { Grid, Row, Col, Table } from "react-bootstrap";
 import { connect } from 'react-redux';
 
 import Card from "../../components/Card/Card.jsx";
-import { thArray, tdArray } from "../../variables/Variables.jsx";
 import { getPacientes } from '../../ActionState/pacientes/api/actions';
 
 
-class EventsPage extends Component {
+class Pacientes extends Component {
     constructor(props){
         super(props);
         this.state = {
@@ -17,14 +16,11 @@ class EventsPage extends Component {
 
     componentWillMount(){
         this.props.getPacientes()
-        .then(response => {
-            
-        })
     }
 
     render() {
         
-        const {paciente} = this.props
+        const {pacientes} = this.props
 
         return (
             <div className="content">
@@ -44,22 +40,30 @@ class EventsPage extends Component {
                                     <Table striped hover>
                                         <thead>
                                         <tr>
-                                            {thArray.map((prop, key) => {
-                                                return <th key={key}>{prop}</th>;
-                                            })}
+                                            <th>No.</th>
+                                            <th>Nombre</th>
+                                            <th>Apellido</th>
+                                            <th>Email</th>
+                                            <th>Fecha nacimiento</th>
+                                            <th>Estado Civil</th>
+                                            <th>Nacionalidad</th>
+                                            <th>Domicilio</th>
+                                            <th>Ocupacion</th>
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        {paciente.paciente.map((prop, key) => {
+                                        {pacientes.pacientes.map((prop, key) => {
                                             return (
                                                 <tr key={key}>
-                                                    <th>{key+1}</th>
-                                                    <th>{prop.nombre}</th>
-                                                    <div className="pull-right">
-                                                        <button type="button" className="btn btn-primary btn-sm">Edit</button>
-                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                        <button type="button" className="btn btn-danger btn-sm">Remove</button>
-                                                    </div>
+                                                    <td>{key+1}</td>
+                                                    <td>{prop.nombre}</td>
+                                                    <td>{prop.apellido}</td>
+                                                    <td>{prop.email}</td>
+                                                    <td>{(new Date(prop.fechanacimiento)).toString()}</td>
+                                                    <td>{prop.estadocivil}</td>
+                                                    <td>{prop.nacionalidad}</td>
+                                                    <td>{prop.domicilio}</td>
+                                                    <td>{prop.ocupacion}</td>
                                                 </tr>
                                             );
                                         })}
@@ -80,9 +84,9 @@ class EventsPage extends Component {
 
 function mapStateToProps(state){
     return {
-        paciente: state.paciente,
+        pacientes: state.pacientes,
         auth: state.auth
     }
 }
 
-export default connect(mapStateToProps,{getPacientes})(EventsPage);
+export default connect(mapStateToProps,{getPacientes})(Pacientes);

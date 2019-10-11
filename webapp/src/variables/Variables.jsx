@@ -256,12 +256,7 @@ const tdArray = [
   ["4", "Philip Chaney", "PCO", "LIMIT USER"],
   ["5", "Doris Greene", "DET", "BASIC USER"],
   ["6", "Mason Porter", "LCSO", "BASIC USER"],
-    ["7", "John Petrucci", "SGT", "POWER USER"],
-    ["8", "Angel Ruiz", "CPL", "LIMIT USER"],
-    ["9", "Mauricio Toledo", "OFC", "LIMIT USER"],
-    ["10", "Jose Mendez", "PCO", "LIMIT USER"],
-    ["11", "Carlos Sanchez", "DET", "BASIC USER"],
-    ["12", "Hans Giron", "LCSO", "BASIC USER"]
+    ["7", "John Petrucci", "SGT", "POWER USER"]
 ];
 const tdEmpleado2 = [
   ["1", "Dakota Rice", "Dcotor"],

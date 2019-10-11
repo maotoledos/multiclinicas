@@ -1,4 +1,3 @@
-// user
 export default (sequelize, DataTypes) => {
   var User = sequelize.define('users', {
     id: {
@@ -11,9 +10,6 @@ export default (sequelize, DataTypes) => {
     nombre: {
       type: DataTypes.STRING
     },
-    tipo:{
-      type: DataTypes.STRING
-    },
     apellido: {
       type: DataTypes.STRING
     },
@@ -23,18 +19,33 @@ export default (sequelize, DataTypes) => {
     password: {
       type: DataTypes.STRING
     },
-    first_users:{
-      type:DataTypes.BOOLEAN
+    first_users: {
+      type: DataTypes.BOOLEAN
     },
-    
-  },{
+    fechanacimiento: {
+      type: DataTypes.DATE
+    },
+    estadocivil: {
+      type: DataTypes.STRING
+    },
+    nacionalidad: {
+      type: DataTypes.STRING
+    },
+    domicilio: {
+      type: DataTypes.STRING
+    },
+    ocupacion: {
+      type: DataTypes.STRING
+    }
+
+  }, {
     timestamps: false
   });
 
 
 
-  User.associate = function(model){
+  User.associate = function (model) {
     User.hasOne(model.Historial);
-} 
+  }
   return User;
 }

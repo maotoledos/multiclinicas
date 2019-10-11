@@ -6,7 +6,7 @@ import HeaderLinks from "../Header/HeaderLinks.jsx";
 import imagine from "../../assets/img/sidebar-2.jpg";
 import logo from "../../assets/img/default-avatar.png";
 
-import dashboardRoutes from "../../routes/schedulingRoutes.jsx";
+import dashboardRoutes from "../../routes/rutas.jsx";
 
 class Sidebar extends Component {
   constructor(props) {

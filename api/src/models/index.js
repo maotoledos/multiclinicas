@@ -1,7 +1,5 @@
-// Imports
 import Sequelize from 'sequelize'
 
-// App Imports
 import databaseConnection from '../setup/databaseConnection'
 
 
@@ -12,7 +10,12 @@ const models = {
   Historial: databaseConnection.import('./historial/historial'),
   Inventario: databaseConnection.import('./inventario/inventario'),
   Habitacion: databaseConnection.import('./habitacion/habitacion'),
-  PacientesXHabitacion: databaseConnection.import('./pacientesxhabitacion/pacientesxhabitacion')
+  PacientesXHabitacion: databaseConnection.import('./pacientesxhabitacion/pacientesxhabitacion'),
+  TipoUsuario: databaseConnection.import('./tipousuario/tipousuario'),
+  TipoAtencion: databaseConnection.import('./tipoatencion/tipoatencion'),
+  Medicina: databaseConnection.import('./medicina/medicina'),
+  MedicinaXPaciente: databaseConnection.import('./medicinaxpaciente/medicinaxpaciente'),
+  Expediente: databaseConnection.import('./expediente/expediente')
 }
 
 //object.keys fk pk
