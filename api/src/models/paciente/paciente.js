@@ -11,6 +11,27 @@ export default (sequelize, DataTypes) => {
     nombre:{
       type:DataTypes.STRING
     },
+    apellido: {
+      type: DataTypes.STRING
+    },
+    email: {
+      type: DataTypes.STRING
+    },
+    fechanacimiento: {
+      type: DataTypes.DATE
+    },
+    estadocivil: {
+      type: DataTypes.STRING
+    },
+    nacionalidad: {
+      type: DataTypes.STRING
+    },
+    domicilio: {
+      type: DataTypes.STRING
+    },
+    ocupacion: {
+      type: DataTypes.STRING
+    }
 
   },{
     timestamps: false
@@ -19,6 +40,7 @@ export default (sequelize, DataTypes) => {
   Paciente.associate = function(model){
     Paciente.hasOne(model.Historial);
     Paciente.hasOne(model.PacientesXHabitacion);
+    Paciente.hasOne(model.MedicinaXPaciente);
 }
 
   return Paciente;

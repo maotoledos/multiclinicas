@@ -85,3 +85,16 @@ Is sysctl command for configure kernel parameters at runtime
 Change the following ip to connect to server on backend
 webapp/.env
 webapp/package.json
+
+
+
+# Start DB
+
+INSERT INTO `testing`.`sucursales` (`id`, `nombre`) VALUES ('1', 'Clinicas Aguacateras');
+INSERT INTO `testing`.`tipousuarios` (`id`, `nombre`) VALUES ('1', 'Doctor');
+INSERT INTO `testing`.`users` 
+(`id`, `nombre`, `apellido`, `email`, `password`, `first_users`, `fechanacimiento`, 
+`estadocivil`, `nacionalidad`, `domicilio`, `ocupacion`, `sucursaleId`, `tipousuarioId`) 
+VALUES ('1', 'Mauricio', 'Toledo', 'mauricio@mail.com', 
+'$2b$10$poRubduVUMEkk0CAGqqQYO0ysz.Se3VLA.tedeXdSBC9zDmATo/IG', '1', '1992/01/01', 'soltero', 
+'guatemalteco', 'guatemala', 'doctor por el dia, programador por la noche', '1', '1');

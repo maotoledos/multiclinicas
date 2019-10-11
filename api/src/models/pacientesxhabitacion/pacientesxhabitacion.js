@@ -8,10 +8,12 @@ export default (sequelize, DataTypes) => {
       allowNull: false,
       unique: true
     },
-    fecha:{
-      type:DataTypes.STRING
+    fechaocupada:{
+      type:DataTypes.DATE
     },
-
+    fechadesocupada:{
+      type:DataTypes.DATE
+    },
   },{
     timestamps: false
   });

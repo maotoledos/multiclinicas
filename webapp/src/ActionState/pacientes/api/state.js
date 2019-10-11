@@ -1,8 +1,8 @@
 const pacienteInitialState = {
-  paciente: []
+  pacientes: []
 }
 
-export const paciente = (state = pacienteInitialState, action) => {
+export const pacientes = (state = pacienteInitialState, action) => {
   switch(action.type) {
       case 'GET_PACIENTES_REQUEST':
       return {
@@ -11,7 +11,7 @@ export const paciente = (state = pacienteInitialState, action) => {
       case 'GET_PACIENTES_RESPONSE':
       return {
           ...state,
-          paciente: action.paciente
+          pacientes: action.pacientes
       }
       case 'GET_PACIENTES_FAILURE':
       return {

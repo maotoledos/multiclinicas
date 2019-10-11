@@ -44,7 +44,6 @@ class LoginForm extends Component{
         event.preventDefault();
 
         if (this.isValid()){
-            console.log(`this state: ${this.state.identifier} password: ${this.state.password}`);
             
             this.setState({errors: {}, isLoading: true});
             this.props.loginJWT(this.state)

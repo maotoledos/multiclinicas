@@ -1,7 +1,7 @@
 {
   "name": "api",
   "version": "1.0.0",
-  "description": "San Francisco Police Department State University Schedule",
+  "description": "Multi Clinicas Universidad Mariano Galvez",
   "main": "index.js",
   "scripts": {
     "start": "nodemon src/index.js --exec babel-node --presets env,stage-2"

@@ -10,7 +10,7 @@ import Sidebar from "../../components/Sidebar/Sidebar";
 
 import { style } from "../../variables/Variables.jsx";
 
-import dashboardRoutes from "../../routes/schedulingRoutes.jsx";
+import dashboardRoutes from "../../routes/rutas.jsx";
 
 class SchedulingLayout extends Component {
   constructor(props) {
@@ -22,68 +22,32 @@ class SchedulingLayout extends Component {
     };
   }
   handleNotificationClick(position) {
-    var color = Math.floor(Math.random() * 4 + 1);
-    var level;
-    switch (color) {
-      case 1:
-        level = "success";
-        break;
-      case 2:
-        level = "warning";
-        break;
-      case 3:
-        level = "error";
-        break;
-      case 4:
-        level = "info";
-        break;
-      default:
-        break;
-    }
     this.state._notificationSystem.addNotification({
       title: <span data-notify="icon" className="pe-7s-monitor" />,
       message: (
         <div>
-          Welcome "MAURICIO" to <b>STAFF SCHEDULING</b>
+          Welcome "MAURICIO" to <b>MULTICLINICAS</b>
         </div>
       ),
-      level: level,
       position: position,
       autoDismiss: 3
     });
   }
   componentDidMount() {
     this.setState({ _notificationSystem: this.refs.notificationSystem });
-    var _notificationSystem = this.refs.notificationSystem;
-    var color = Math.floor(Math.random() * 4 + 1);
-    let level;
-    switch (color) {
-      case 1:
-        level = "success";
-        break;
-      case 2:
-        level = "warning";
-        break;
-      case 3:
-        level = "error";
-        break;
-      case 4:
-        level = "info";
-        break;
-      default:
-        break;
-    }
-    _notificationSystem.addNotification({
-      title: <span data-notify="icon" className="pe-7s-monitor" />,
-      message: (
-          <div>
-              Bienvenido {this.props.auth.user.firstname.toUpperCase()}
-          </div>
-      ),
-      level: "info",
-      position: "tr",
-      autoDismiss: 3
-    });
+    // var _notificationSystem = this.refs.notificationSystem;
+    
+    // _notificationSystem.addNotification({
+    //   title: <span data-notify="icon" className="pe-7s-monitor" />,
+    //   message: (
+    //       <div>
+    //           Bienvenido {this.props.auth.user.firstname.toUpperCase()}
+    //       </div>
+    //   ),
+    //   level: "success",
+    //   position: "tr",
+    //   autoDismiss: 3
+    // });
   }
   componentDidUpdate(e) {
     if (

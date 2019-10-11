@@ -19,8 +19,10 @@ export default (sequelize, DataTypes) => {
     },
     fecha:{
       type:DataTypes.STRING
-    },   
-
+    },
+    observacion:{
+      type:DataTypes.STRING
+    },
 
   },{
     timestamps: false

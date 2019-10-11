@@ -14,7 +14,7 @@ export function getInventario(isLoading = true) {
           
           type: 'query',
           operation: 'inventarios',
-          fields: ['id', 'nombre', 'sucursaleId{id, nombre}', 'cantidad' ]
+          fields: ['id', 'nombre', 'sucursaleId{id, nombre}', 'cantidad','lote','medicinaId{id,nombre, marca, unidades}' ]
       }))
       .then((response)=> {
           dispatch({

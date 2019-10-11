@@ -18,7 +18,8 @@ export default (sequelize, DataTypes) => {
 
   Sucursales.associate = function(model){
     Sucursales.hasOne(model.User);
-    Sucursales.hasOne(model.Inventario)
+    Sucursales.hasOne(model.Inventario);
+    Sucursales.hasOne(model.PacientesXHabitacion);
   }
 
 
