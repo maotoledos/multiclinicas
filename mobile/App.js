@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Image, StyleSheet, Text, View,FlatList,StatusBar} from 'react-native';
+import {Image, StyleSheet, Text, View,FlatList,StatusBar, Button, Alert} from 'react-native';
 import axios from 'axios';
 import { queryBuilder } from './setup/helpers';
 
@@ -45,10 +45,12 @@ componentDidMount(){
        renderItem={({item}) =>
 
        <View style={{backgroundColor:'#abc123',padding:10,margin:10}}>
-          {/*<Text style={{color:'#fff', fontWeight:'bold'}}>{index} Medicina: {item.medicinaId}</Text>
-          <Text style={{color:'#fff'}}>Marca: {item.medicinaId.marca}</Text>
-          <Text>Unidades: {item.medicinaId.unidades}</Text>
-          <Text style={{color:'#fff', fontWeight:'bold'}}>Inventario de: {item.sucursaleId.nombre}</Text> */}
+          <Text style={{color:'#fff', fontWeight:'bold'}}>
+          Medicina: {item['medicinaId'].id}
+          </Text>
+          <Text style={{color:'#fff'}}>Marca: {item['medicinaId'].marca}</Text>
+          <Text>Unidades: {item['medicinaId'].unidades}</Text>
+          <Text style={{color:'#fff', fontWeight:'bold'}}>Inventario de: {item['sucursaleId'].nombre}</Text>
           <Text style={{color:'#fff'}}>Cantidad de Existencia: {item.cantidad}</Text>
           <Text>Descripcion: {item.nombre}</Text>
           <Text style={{color:'#fff'}}>Lote: {item.lote}</Text>
@@ -61,6 +63,10 @@ componentDidMount(){
        }
 
        />
+       <Button
+          title="Press me"
+          onPress={() => Alert.alert('Simple Button pressed')}
+        />
       </View>
     );
   }

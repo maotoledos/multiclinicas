@@ -1,4 +1,3 @@
-// Imports
 import axios from 'axios';
 
 import { queryBuilder } from '../../../setup/helpers';
