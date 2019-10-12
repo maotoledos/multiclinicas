@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Image, StyleSheet, Text, View,FlatList,StatusBar} from 'react-native';
+import {Image, StyleSheet, Text, View,FlatList,StatusBar,Button,Header} from 'react-native';
 import axios from 'axios';
 import { queryBuilder } from './setup/helpers';
 
@@ -11,7 +11,7 @@ export default class App extends Component<Props> {
 
   fetchData= async()=>{
 
-    axios.post("http://192.168.1.46:3000", queryBuilder({
+    axios.post("http://192.168.1.10:3000", queryBuilder({
 
         type: 'query',
         operation: 'inventarios',
@@ -33,17 +33,25 @@ componentDidMount(){
   this.fetchData();
 }
   render() {
+    
+  onPress = () => {
+    this.forceUpdate();
+  }
     return (
       <View >
+       
         <Text></Text>
         <StatusBar backgroundColor="blue" barStyle="light-content" />
        <Text>CLINICAS MEDICAS</Text>
-      
+       
+       <Button  onPress={this.onPress}
+       title="Update"
+       loading
+     />
        <FlatList
        data={this.state.data}
        keyExtractor={(item,index) => index.toString()}
        renderItem={({item}) =>
-
        <View style={{backgroundColor:'#abc123',padding:10,margin:10}}>
           {/*<Text style={{color:'#fff', fontWeight:'bold'}}>{index} Medicina: {item.medicinaId}</Text>
           <Text style={{color:'#fff'}}>Marca: {item.medicinaId.marca}</Text>
