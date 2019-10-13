@@ -26,10 +26,10 @@ const PacientesXHabitacionType = new GraphQLObjectType({
         return models.Habitacion.findOne({where:{id:parent.habitacionId}})
       }
     },
-    sucursalId:{
+    sucursaleId:{
       type: SucursalType,
       resolve(parent, args){
-        return models.Sucursal.findOne({where:{id:parent.sucursalId}})
+        return models.Sucursales.findOne({where:{id:parent.sucursaleId}})
       }
     }   
   })
