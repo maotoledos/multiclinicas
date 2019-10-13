@@ -1,5 +1,8 @@
 // Imports
-import {GraphQLObjectType, GraphQLString, GraphQLInt,GraphQLBoolean} from 'graphql'
+import {GraphQLObjectType, GraphQLString, GraphQLInt,GraphQLBoolean} from 'graphql';
+import {
+  GraphQLDate
+} from 'graphql-iso-date';
 
 
 const PacienteType = new GraphQLObjectType({
@@ -11,7 +14,7 @@ const PacienteType = new GraphQLObjectType({
     nombre: {type: GraphQLString},
     apellido: {type: GraphQLString},
     email: {type: GraphQLString},
-    fechanacimiento:{type:GraphQLString},
+    fechanacimiento:{type:GraphQLDate},
     estadocivil: {type: GraphQLString},
     nacionalidad: {type: GraphQLString},
     domicilio: {type: GraphQLString},
