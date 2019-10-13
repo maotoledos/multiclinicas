@@ -45,7 +45,6 @@ export default class App extends Component<Props> {
       }))
       .then((response) => {
         let respuesta = response.data.data.inventarios;
-        console.log(respuesta)
         
         this.setState({data: respuesta});
         

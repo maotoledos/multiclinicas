@@ -1,9 +1,6 @@
-// Imports
 import {GraphQLObjectType} from 'graphql'
 
-// App Imports
-import * as user from './users/fields/mutations'
-
+import * as  paciente from './paciente/fields/mutations';
 
 
 
@@ -14,7 +11,7 @@ const mutation = new GraphQLObjectType({
   description: '...',
 
   fields: {
-    ...user
+    ...paciente
 
   }
 })

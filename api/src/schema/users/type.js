@@ -1,4 +1,7 @@
 import {GraphQLObjectType, GraphQLString, GraphQLInt,GraphQLBoolean} from 'graphql';
+import {
+  GraphQLDate
+} from 'graphql-iso-date';
 import SucursalType from '../sucursales/type';
 import TipoUsuarioType from '../tipousuario/type';
 import models from '../../models';
@@ -15,7 +18,7 @@ const UserType = new GraphQLObjectType({
     email: {type: GraphQLString},
     password: {type: GraphQLString},
     first_users:{type:GraphQLBoolean},
-    fechanacimiento:{type:GraphQLString},
+    fechanacimiento:{type:GraphQLDate},
     estadocivil: {type: GraphQLString},
     nacionalidad: {type: GraphQLString},
     domicilio: {type: GraphQLString},
