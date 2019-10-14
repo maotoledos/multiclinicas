@@ -36,7 +36,7 @@ export default class App extends Component<Props> {
   fetchData= async()=>{
   
 
-    axios.post("http://192.168.1.10:3000", queryBuilder({
+    axios.post("http://192.168.1.46:3000", queryBuilder({
 
         type: 'query',
         operation: 'inventarios',
