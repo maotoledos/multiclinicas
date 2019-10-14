@@ -86,12 +86,24 @@ Change the following ip to connect to server on backend
 webapp/.env
 webapp/package.json
 
+## Permissions Levels
 
+1. admin: Allowed to edit, delete and create all
+2. doctor: Allowed to edit, delete and create all, but, Sucursales, Empleados
+3. otro: : Allowed to see all, and, create only Pacientes, Medicina
 
-# Start DB
+## Start DB  
+
+INSERT INTO `testing`.`tipousuarios` (`id`, `nombre`) VALUES ('1', 'admin');
+
+INSERT INTO `testing`.`tipousuarios` (`id`, `nombre`) VALUES ('2', 'doctor');
+
+INSERT INTO `testing`.`tipousuarios` (`id`, `nombre`) VALUES ('3', 'otro');
 
 INSERT INTO `testing`.`sucursales` (`id`, `nombre`) VALUES ('1', 'Clinicas Aguacateras');
+
 INSERT INTO `testing`.`tipousuarios` (`id`, `nombre`) VALUES ('1', 'Doctor');
+
 INSERT INTO `testing`.`users` 
 (`id`, `nombre`, `apellido`, `email`, `password`, `first_users`, `fechanacimiento`, 
 `estadocivil`, `nacionalidad`, `domicilio`, `ocupacion`, `sucursaleId`, `tipousuarioId`) 
