@@ -5,7 +5,7 @@
   "dependencies": {
     "antd": "^3.23.6",
     "axios": "^0.18.0",
-    "bootstrap": "3.3.7",
+    "bootstrap": "3.4.1",
     "chartist": "0.10.1",
     "chokidar": "^3.2.1",
     "classnames": "^2.2.6",
