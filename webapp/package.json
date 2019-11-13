@@ -20,7 +20,7 @@
     "react-big-calendar": "^0.19.2",
     "react-bootstrap": "0.32.1",
     "react-chartist": "0.13.1",
-    "react-dom": "16.2.0",
+    "react-dom": "16.11.0",
     "react-google-maps": "9.4.5",
     "react-notification-system": "0.2.17",
     "react-redux": "^5.0.7",
