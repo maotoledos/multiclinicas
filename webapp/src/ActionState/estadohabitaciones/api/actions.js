@@ -30,3 +30,36 @@ export function getPacientesXHabitaciones(isLoading = true) {
       })
   }
 }
+export function agregarHabitacion(data) {
+    delete data.bloquear;
+    return dispatch => {
+     return axios.post(routesApi, queryBuilder({
+      type: 'mutation',
+      operation: 'crearhabitacion',
+      data,
+      fields: ['id']
+     }))
+    }
+   }
+   
+   export function editarHabitacion(data) {
+    delete data.bloquear;
+    return dispatch => {
+     return axios.post(routesApi, queryBuilder({
+      type: 'mutation',
+      operation: 'actualizarhabitacion',
+      data,
+      fields: ['id']
+     }))
+    }
+   }
+   
+   export function eliminarHabitacion(id) {
+    if (id){
+      id = parseInt( id, 10 )
+    }
+    let data= {id}
+    return dispatch => {
+      return axios.post(routesApi, queryBuilder({type: 'mutation', operation: 'eliminarhabitacion', data, fields: ['id']}))
+    }
+   }

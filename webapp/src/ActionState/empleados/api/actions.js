@@ -31,3 +31,36 @@ export function getEmpleados(isLoading = true) {
       })
   }
 }
+export function agregarEmpleado(data) {
+    delete data.bloquear;
+    return dispatch => {
+     return axios.post(routesApi, queryBuilder({
+      type: 'mutation',
+      operation: 'crearempleado',
+      data,
+      fields: ['id']
+     }))
+    }
+   }
+   
+   export function editarEmpleado(data) {
+    delete data.bloquear;
+    return dispatch => {
+     return axios.post(routesApi, queryBuilder({
+      type: 'mutation',
+      operation: 'actualizarempleado',
+      data,
+      fields: ['id']
+     }))
+    }
+   }
+   
+   export function eliminarEmpleado(id) {
+    if (id){
+      id = parseInt( id, 10 )
+    }
+    let data= {id}
+    return dispatch => {
+      return axios.post(routesApi, queryBuilder({type: 'mutation', operation: 'eliminarempleado', data, fields: ['id']}))
+    }
+   }
