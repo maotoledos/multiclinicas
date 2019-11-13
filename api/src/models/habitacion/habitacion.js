@@ -10,6 +10,9 @@ export default (sequelize, DataTypes) => {
     nombre: {
       type: DataTypes.STRING
     },
+    estado: {
+      type: DataTypes.BOOLEAN
+    }
 
   }, {
     timestamps: false

@@ -8,7 +8,8 @@ const HabitacionType = new GraphQLObjectType({
 
   fields: () => ({
     id: {type: GraphQLInt},
-    nombre: {type: GraphQLString}   
+    nombre: {type: GraphQLString},
+    estado: {type: GraphQLBoolean}   
   })
 })
 
