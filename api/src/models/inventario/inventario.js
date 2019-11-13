@@ -12,10 +12,10 @@ export default (sequelize, DataTypes) => {
       type:DataTypes.STRING
     },
     cantidad:{
-      type:DataTypes.DOUBLE
+      type:DataTypes.INTEGER
     },
     lote:{
-      type:DataTypes.STRING
+      type:DataTypes.INTEGER
     }
   },{
     timestamps: false

@@ -1,17 +1,41 @@
 import React, { Component } from "react";
-import { Grid, Row, Col, Table } from "react-bootstrap";
+import { Grid, Row, Col, Table,Modal } from "react-bootstrap";
 import { connect } from 'react-redux';
 
 import Card from "../../components/Card/Card.jsx";
-import {getEmpleados} from '../../ActionState/empleados/api/actions';
+import {getEmpleados,eliminarEmpleado} from '../../ActionState/empleados/api/actions';
+import EmpleadoForm from '../../components/Formularios/FormularioEmpleado';
+import EmpleadoFormEditar from '../../components/Formularios/FormularioEmpleadoEdit';
 
 class Empleados extends Component {
     constructor(props){
         super(props);
         this.state = {
-            empleados:''
+            empleados:'',
+            mostrarModal: false,
+			mostrarModalEdit: false,
+			valoresEmpleado: {}
                 };
     }
+	eliminarEmpleado = async (idEmpleado) => {
+		await this.props.eliminarEmpleado(idEmpleado)
+		this.props.getEmpleados();
+	}
+
+	habilitarModal = () => {
+		this.setState({
+			mostrarModal: !this.state.mostrarModal
+		});
+		this.state.mostrarModal && this.props.getEmpleados();
+	}
+
+	habilitarModalEditar = (valoresEmpleado) => {
+		this.setState({
+			valoresEmpleado: valoresEmpleado,
+			mostrarModalEdit: !this.state.mostrarModalEdit
+		});
+		this.state.mostrarModalEdit && this.props.getEmpleados();
+	}
 
     componentWillMount(){
 
@@ -25,10 +49,40 @@ class Empleados extends Component {
         const {empleados} = this.props;
         return (
             <div className="content">
-            <Grid fluid>
-                    <Row>
-                        <Col md={12}>
-                            <Card
+				<Modal
+					show={this.state.mostrarModal}
+					onHide={() => this.habilitarModal()}
+					dialogClassName="modal-90w"
+					aria-labelledby="example-custom-modal-styling-title">
+					<Modal.Header closeButton>
+						<Modal.Title id="example-custom-modal-styling-title">
+							Agregar Empleado
+                        </Modal.Title>
+					</Modal.Header>
+					<Modal.Body>
+						<EmpleadoForm />
+					</Modal.Body>
+				</Modal>
+
+				<Modal
+					show={this.state.mostrarModalEdit}
+					onHide={() => this.habilitarModalEditar()}
+					dialogClassName="modal-90w"
+					aria-labelledby="example-custom-modal-styling-title">
+					<Modal.Header closeButton>
+						<Modal.Title id="example-custom-modal-styling-title">
+							Editar Empleado
+      </Modal.Title>
+					</Modal.Header>
+					<Modal.Body>
+						{this.state.mostrarModalEdit &&
+							<EmpleadoFormEditar valores={this.state.valoresEmpleado} />}
+					</Modal.Body>
+				</Modal>
+				<Grid fluid>
+					<Row>
+						<Col md={12}>
+							<Card
                                 title="Empleados"
                                 category="User Control (Add, Edit, Remove)"
                                 ctTableFullWidth
@@ -36,7 +90,7 @@ class Empleados extends Component {
                                 content={
                                     <div className="jumbotron">
                                         <div className="pull-right">
-                                            <button type="button" className="btn btn-success btn-lg"><i className="pe-7s-add-user"/> Add User</button>
+                                            <button type="button" className="btn btn-success btn-lg" onClick={this.habilitarModal}><i className="pe-7s-add-user"/> Add User</button>
                                         </div>
                                     <Table striped bordered hover>
                                         <thead>
@@ -93,4 +147,4 @@ function mapStateToProps(state){
     }
 }
 
-export default connect(mapStateToProps,{ getEmpleados }) (Empleados);
+export default connect(mapStateToProps,{ getEmpleados,eliminarEmpleado }) (Empleados);
