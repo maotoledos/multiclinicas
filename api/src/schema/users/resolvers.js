@@ -143,7 +143,7 @@ export async function login( email, password ) {
         id: userDetails.id,
         firstname: userDetails.nombre,
         email: userDetails.email,
-        tipo: userDetails.tipo,
+        tipo: userDetails.tipousuarioId,
         first_users: userDetails.first_users
       }
       return {
@@ -151,7 +151,7 @@ export async function login( email, password ) {
         lastname: userDetails.apellido,
         firstname: userDetails.nombre,
         email: userDetails.email,
-        tipo: userDetails.tipo,
+        tipo: userDetails.tipousuarioId,
         token: jwt.sign(userDetailsToken, serverConfig.secret)
       }
     }

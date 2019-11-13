@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 import NotificationSystem from "react-notification-system";
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
 import PropTypes from 'prop-types';
- 
+
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import Sidebar from "../../components/Sidebar/Sidebar";
@@ -11,6 +11,8 @@ import Sidebar from "../../components/Sidebar/Sidebar";
 import { style } from "../../variables/Variables.jsx";
 
 import dashboardRoutes from "../../routes/rutas.jsx";
+import dashboardRoutesAdmin from "../../routes/rutasAdmin.jsx";
+import dashboardRoutesEmpleado from "../../routes/rutasEmpleado.jsx";
 
 class SchedulingLayout extends Component {
   constructor(props) {
@@ -35,19 +37,6 @@ class SchedulingLayout extends Component {
   }
   componentDidMount() {
     this.setState({ _notificationSystem: this.refs.notificationSystem });
-    // var _notificationSystem = this.refs.notificationSystem;
-    
-    // _notificationSystem.addNotification({
-    //   title: <span data-notify="icon" className="pe-7s-monitor" />,
-    //   message: (
-    //       <div>
-    //           Bienvenido {this.props.auth.user.firstname.toUpperCase()}
-    //       </div>
-    //   ),
-    //   level: "success",
-    //   position: "tr",
-    //   autoDismiss: 3
-    // });
   }
   componentDidUpdate(e) {
     if (
@@ -71,7 +60,49 @@ class SchedulingLayout extends Component {
         <div id="main-panel" className="main-panel" ref="mainPanel">
           <Header {...this.props} />
           <Switch>
-            {dashboardRoutes.map((prop, key) => {
+            {this.props.auth.user.tipo === 1 && dashboardRoutes.map((prop, key) => {
+              if (prop.name === "Notifications")
+                return (
+                  <Route
+                    path={prop.path}
+                    key={key}
+                    render={routeProps => (
+                      <prop.component
+                        {...routeProps}
+                        handleClick={this.handleNotificationClick}
+                      />
+                    )}
+                  />
+                );
+              if (prop.redirect)
+                return <Redirect from={prop.path} to={prop.to} key={key} />;
+              return (
+                <Route path={prop.path} component={prop.component} key={key} />
+              );
+            })}
+
+            {this.props.auth.user.tipo === 2 && dashboardRoutesAdmin.map((prop, key) => {
+              if (prop.name === "Notifications")
+                return (
+                  <Route
+                    path={prop.path}
+                    key={key}
+                    render={routeProps => (
+                      <prop.component
+                        {...routeProps}
+                        handleClick={this.handleNotificationClick}
+                      />
+                    )}
+                  />
+                );
+              if (prop.redirect)
+                return <Redirect from={prop.path} to={prop.to} key={key} />;
+              return (
+                <Route path={prop.path} component={prop.component} key={key} />
+              );
+            })}
+
+            {this.props.auth.user.tipo === 3 && dashboardRoutesEmpleado.map((prop, key) => {
               if (prop.name === "Notifications")
                 return (
                   <Route
@@ -100,13 +131,13 @@ class SchedulingLayout extends Component {
 }
 
 SchedulingLayout.propTypes = {
-    auth: PropTypes.object.isRequired
+  auth: PropTypes.object.isRequired
 }
 
-function mapStateToProps(state){
-    return {
-        auth: state.auth
-    }
+function mapStateToProps(state) {
+  return {
+    auth: state.auth
+  }
 }
 
 export default connect(mapStateToProps)(SchedulingLayout);
