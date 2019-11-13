@@ -34,12 +34,12 @@ export async function actualizarInventario(parentValue, {
   medicinaId
 }) {
   return await models.Inventario.update({
-    id, 
-nombre,
-cantidad,
-lote,
-sucursaleId,
-medicinaId
+  id, 
+  nombre,
+  cantidad,
+  lote,
+  sucursaleId,
+  medicinaId
   }, {
     where: {
       id

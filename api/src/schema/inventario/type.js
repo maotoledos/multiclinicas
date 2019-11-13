@@ -14,7 +14,7 @@ const InventarioType = new GraphQLObjectType({
     id: {type: GraphQLInt},
     nombre: {type: GraphQLString},
     cantidad: {type: GraphQLInt},
-    lote: {type: GraphQLString},
+    lote: {type: GraphQLInt},
     sucursaleId: {
       type: SucursalType,
       resolve(parent, args){
